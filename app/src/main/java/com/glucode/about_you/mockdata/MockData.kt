@@ -1,9 +1,9 @@
 package com.glucode.about_you.mockdata
 
-import com.glucode.about_you.engineers.models.Answer
-import com.glucode.about_you.engineers.models.Engineer
-import com.glucode.about_you.engineers.models.Question
-import com.glucode.about_you.engineers.models.QuickStats
+import com.glucode.about_you.engineers.legacy.models.Answer
+import com.glucode.about_you.engineers.legacy.models.Engineer
+import com.glucode.about_you.engineers.legacy.models.Question
+import com.glucode.about_you.engineers.legacy.models.QuickStats
 
 object MockData {
     val engineers = listOf(
@@ -86,4 +86,18 @@ object MockData {
             )
         )
     )
+
+    fun updateEngineerImageName(nameToUpdate: String, newImageName: String): List<Engineer> {
+        val indexToUpdate = engineers.indexOfFirst { it.name.equals(nameToUpdate, ignoreCase = true) }
+
+        return if (indexToUpdate != -1) {
+            val updatedEngineers = engineers.toMutableList()
+            updatedEngineers[indexToUpdate] = updatedEngineers[indexToUpdate].copy(
+                defaultImageName = newImageName
+            )
+            updatedEngineers.toList()
+        } else {
+            engineers
+        }
+    }
 }

@@ -10,4 +10,8 @@
 
     <!--About-->
     <string name="about_screen_title">About</string>
+    <string name="go_back">go back</string>
+    <string name="dropdown_menu">drop down items\n</string>
+    <string name="image_saved">Image updated</string>
+    <string name="image_error">couldn\'t update image</string>
 </resources>
